@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微信聊天记录生成器</title>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 左侧编辑区域 -->
+        <div class="edit-panel">
+            <div class="panel-header">
+                <h2>编辑区域</h2>
+            </div>
+            
+            <!-- 添加头像设置区域 -->
+            <div class="avatar-settings">
+                <div class="avatar-group">
+                    <h3>我的头像</h3>
+                    <div class="avatar-upload">
+                        <img id="myAvatar" src="assets/images/default-avatar.png" alt="我的头像" class="avatar-preview">
+                        <input type="file" id="myAvatarInput" accept="image/*" class="avatar-input">
+                        <label for="myAvatarInput" class="upload-btn">上传头像</label>
+                    </div>
+                </div>
+                <div class="avatar-group">
+                    <h3>对方头像</h3>
+                    <div class="avatar-upload">
+                        <img id="otherAvatar" src="assets/images/default-avatar.png" alt="对方头像" class="avatar-preview">
+                        <input type="file" id="otherAvatarInput" accept="image/*" class="avatar-input">
+                        <label for="otherAvatarInput" class="upload-btn">上传头像</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 现有的编辑工具区域 -->
+            <div class="edit-tools">
+                <!-- 消息类型选择 -->
+                <button class="btn" id="addTextMsg">添加文本消息</button>
+                <!-- 主题切换 -->
+                <button class="btn" id="toggleTheme">切换主题</button>
+            </div>
+            <div class="message-list" id="messageList">
+                <!-- 消息编辑区域 -->
+            </div>
+        </div>
+
+        <!-- 右侧预览区域 -->
+        <div class="preview-panel">
+            <div class="panel-header">
+                <h2>预览区域</h2>
+                <button class="btn" id="exportImage">导出图片</button>
+            </div>
+            <div class="chat-preview-wrapper">
+                <!-- 添加微信顶部导航栏 -->
+                <div class="wechat-header">
+                    <div class="status-bar">
+                        <span class="time">14:21</span>
+                        <div class="status-icons">
+                            <span class="signal">●●●●●</span>
+                            <span class="wifi">📶</span>
+                            <span class="battery">🔋</span>
+                        </div>
+                    </div>
+                    <div class="chat-header">
+                        <div class="header-content">
+                            <span class="back-btn">〈</span>
+                            <span class="chat-title" id="chatTitle">好友昵称</span>
+                            <span class="more-btn">⋯</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 聊天内容区域 -->
+                <div class="chat-container" id="chatPreview">
+                    <!-- 聊天预览区域 -->
+                </div>
+                <!-- 在chat-preview-wrapper底部添加输入框区域 -->
+                <div class="chat-input-area">
+                    <button class="voice-btn"></button>
+                    <div class="text-input-wrapper">
+                        <input type="text" class="text-input" placeholder="发送消息" readonly>
+                    </div>
+                    <button class="emoji-btn"></button>
+                    <button class="more-functions-btn"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 在其他脚本之前添加 html2canvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="js/avatar.js"></script>
+    <!-- 引入脚本文件 -->
+    <script src="js/main.js"></script>
+    <script src="js/messageEdit.js"></script>
+    <script src="js/export.js"></script>
+</body>
+</html> 
